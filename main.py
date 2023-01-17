@@ -37,6 +37,8 @@ normal_canvas, all_canvas = None, None
 
 if isinstance(config["gpu_ids"], int) and (config["gpu_ids"] >= 0):
     device = config["gpu_ids"]
+elif torch.cuda.is_available():
+  device = torch.device("cuda:0")
 else:
     device = "cpu"
 
